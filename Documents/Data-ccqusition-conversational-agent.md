@@ -26,7 +26,7 @@ See the corresponding Raku packages [AAr1, AAr2].
 
 The following diagram shows one way of using DataAcquirer:  
 
-[![](../Diagrams/Data-Acquisition-Workflows-components-interaction.png)](./Diagrams/Data-Acquisition-Workflows-components-interaction.pdf)
+[![](../Diagrams/Data-Acquisition-Workflows-components-interaction.png)](../Diagrams/Data-Acquisition-Workflows-components-interaction.pdf)
 
 ------ 
 
@@ -80,7 +80,7 @@ dsl interpret -c "open a notebook with that data package loaded"
 Here is a diagram that shows the interaction between workflow steps and 
 DAW components:
 
-[![CLIWorkflow](./Diagrams/DAW-CLI-workflow-execution-example.png)](./Diagrams/DAW-CLI-workflow-execution-example.pdf)
+[![CLIWorkflow](./Diagrams/DAW-CLI-workflow-execution-example.png)](../Diagrams/DAW-CLI-workflow-execution-example.pdf)
 
 (The 
 [NLP Template Engine](https://github.com/antononcube/NLP-Template-Engine)
