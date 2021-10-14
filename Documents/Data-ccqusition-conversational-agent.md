@@ -12,11 +12,11 @@ for the envisioned dialogs.
 
 Here is a mind-map that outlines of the scope of the project:
 
-[![](../Diagrams/Data-Acquisition-Workflows-mind-map.png)](./Data-Acquisition-Workflows-mind-map.pdf) 
+[![](../Diagrams/Data-Acquisition-Workflows-mind-map.png)](../Diagrams/Data-Acquisition-Workflows-mind-map.pdf) 
  
 Here is a mind-map that shows the components of the conversational agent:
 
-[![](../Diagrams/Data-Acquisition-Workflows-Conversational-Agent-Modules-mind-map.png)](./Diagrams/Data-Acquisition-Workflows-Conversational-Agent-Modules-mind-map.pdf)
+[![](../Diagrams/Data-Acquisition-Workflows-Conversational-Agent-Modules-mind-map.png)](../Diagrams/Data-Acquisition-Workflows-Conversational-Agent-Modules-mind-map.pdf)
 
 See the corresponding Raku packages [AAr1, AAr2].
 
