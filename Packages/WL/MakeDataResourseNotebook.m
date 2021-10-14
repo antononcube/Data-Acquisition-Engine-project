@@ -6,12 +6,12 @@
 Clear[MakeDataResourceNotebook];
 
 MakeDataResourceNotebook[
+  dirNameArg_,
   funcName_String,
   daDataObject_,
-  description_String : "Place data resource description here!",
-  subTitle_String : "Data resource notebook",
   idSuffixArg_ : Automatic,
-  dirNameArg_String : Automatic ] :=
+  description_String : "Place data resource description here!",
+  subTitle_String : "Data resource notebook"] :=
     Block[{repositoryNotebook, dirName = dirNameArg, idSuffix = idSuffixArg, fileName},
 
       repositoryNotebook = CreateNotebook["FunctionResource"];
