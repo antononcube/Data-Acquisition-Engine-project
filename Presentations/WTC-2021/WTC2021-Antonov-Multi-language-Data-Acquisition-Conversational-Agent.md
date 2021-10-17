@@ -252,8 +252,10 @@ aCAComponents
 
 #### Food preparation workflows (Sous Chef Susana)
 
+```dsl
 DSL MODULE FoodPrep; 
 what did we eat last twelve months
+```
 
 ```mathematica
 ResourceFunction["RecordsSummary"][dsSCSMeals[Select[AbsoluteTime[DateObject["2020-08-01"]] <= AbsoluteTime[#Timestamp] <= AbsoluteTime[DateObject["2021-08-08"]] &]]]
@@ -263,8 +265,10 @@ ResourceFunction["RecordsSummary"][dsSCSMeals[Select[AbsoluteTime[DateObject["20
 
 #### Recruiting workflows (Head Huntress Gemma)
 
+```dsl
 DSL MODULE Recruiting; 
 recommend job descriptions for java
+```
 
 ```mathematica
 smrHHGJobs ⟹ SMRMonRecommendByProfile[ {"Skill:java"}] ⟹ SMRMonJoinAcross["Warning"->False] ⟹ SMRMonTakeValue[]
@@ -330,9 +334,13 @@ Only the data loading and summary analysis are not optional. (The left-most diag
 
 All other steps are optional.
 
-**Remark:** The Split-Transform-Combine pattern (orange blocks) is implemented in [ParallelCombine](http://reference.wolfram.com/mathematica/ref/ParallelCombine.html).
+**Remark:** The Split-Transform-Combine pattern (orange blocks) is implemented in 
+[ParallelCombine](http://reference.wolfram.com/mathematica/ref/ParallelCombine.html).
 
-Also, see the article ["The Split-Apply-Combine Strategy for Data Analysis"](https://www.jstatsoft.org/article/view/v040i01) by Hadley Wickham, [[HW1](https://www.jstatsoft.org/article/view/v040i01)].
+Also, see the article 
+["The Split-Apply-Combine Strategy for Data Analysis"](https://www.jstatsoft.org/article/view/v040i01)
+by Hadley Wickham, 
+[[HW1](https://www.jstatsoft.org/article/view/v040i01)].
 
 ---
 
@@ -480,11 +488,14 @@ plDAWComponents = ImageCrop@Import["https://github.com/antononcube/Data-Acquisit
 
 ## Random data generation
 
-There is a dedicated WFR function [RandomTabularDataset](https://resources.wolframcloud.com/FunctionRepository/resources/RandomTabularDataset/).
+There is a dedicated WFR function 
+[`RandomTabularDataset`](https://resources.wolframcloud.com/FunctionRepository/resources/RandomTabularDataset/).
 
 ### DSL mode
 
+```dsl
 DSL DataAcquisition; generate a random dataset with ten rows and three columns and with 20 max number of values
+```
 
 ```mathematica
 ResourceFunction["RandomTabularDataset"][{10, 3}, "MaxNumberOfValues" -> 20]
@@ -544,10 +555,6 @@ ColumnForm@DSLWebServiceInterpretation[command]
 
 ![1ibcnxwmndbuu](img/1ibcnxwmndbuu.png)
 
-![1rw1kpqdr0bi8](img/1rw1kpqdr0bi8.png)
-
-![1rw1kpqdr0bi8](img/1rw1kpqdr0bi8.png)
-
 Consider the metadata: https://schema.org/ .
 
 (The data is taken from the GitHub repository: https://github.com/schemaorg/schemaorg .)
@@ -557,8 +564,6 @@ dsAllHTTPSTypes = ResourceFunction["ImportCSVToDataset"]["https://raw.githubuser
 ```
 
 ![19oak1zoztpf4](img/19oak1zoztpf4.png)
-
-![1rw1kpqdr0bi8](img/1rw1kpqdr0bi8.png)
 
 ## Metadata 2
 
@@ -633,7 +638,7 @@ say to-pretty-table(@tbl.sort({ $_<command> }));
 
 ![1rw1kpqdr0bi8](img/1rw1kpqdr0bi8.png)
 
-Try out [this interactive interface ](https://antononcube.shinyapps.io/ExampleDatasetsRecommenderInterface/)that uses a recommender objects over example datasets.
+Try out [this interactive interface](https://antononcube.shinyapps.io/ExampleDatasetsRecommenderInterface/)that uses a recommender objects over example datasets.
 
 ### “Common” recommender
 
@@ -700,7 +705,8 @@ Note that the history is not removed.
 
 #### In R
 
-Using the data frame of R-packages datasets from ["Rdatasets"](https://vincentarelbundock.github.io/Rdatasets/). 
+Using the data frame of R-packages datasets from 
+["Rdatasets"](https://vincentarelbundock.github.io/Rdatasets/). 
 
 ### Metadata unification
 
@@ -726,7 +732,8 @@ Map[MatrixPlot[#, ImageSize -> {Automatic, 250}] &, smrWLExampleData\[DoubleLong
 
 ## [Example datasets interactive interface](https://antononcube.shinyapps.io/ExampleDatasetsRecommenderInterface/)
 
-Try out [this interactive interface ](https://antononcube.shinyapps.io/ExampleDatasetsRecommenderInterface/)that uses a recommender objects over example datasets.
+Try out [this interactive interface](https://antononcube.shinyapps.io/ExampleDatasetsRecommenderInterface)
+that uses a recommender objects over example datasets.
 
 ![1wrt2mu180vdr](img/1wrt2mu180vdr.png)
 
@@ -746,7 +753,9 @@ say ToDataAcquisitionWorkflowCode("how many times I acquired anatomical structur
 (*"{CODE => Length[dsDataAcquisitions[Select[AbsoluteTime[DateObject[\"2020-01-01\"]] <= AbsoluteTime[#Timestamp] <= AbsoluteTime[DateObject[\"2020-12-31\"]]&]]]}"*)
 ```
 
+```dsl
 DSL MODULE DataAcquisitionWorkflows; DSL TARGET WL::System; how many times I acquired anatomical structure data last year
+```
 
 ```
 (*<|"DSLFUNCTION" -> "proto sub ToDataAcquisitionWorkflowCode (Str $command, Str $target = \"WL-System\", |) {*}", "DSLTARGET" -> "WL::System", "DSL" -> "DSL::English::DataAcquisitionWorkflows", "COMMAND" -> "DSL MODULE DataAcquisitionWorkflows; DSL TARGET WL::System; how many times I acquired anatomical structure data last year", "USERID" -> "", "CODE" -> ""|>*)
