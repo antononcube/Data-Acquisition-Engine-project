@@ -63,7 +63,7 @@ If[ Length[DownValues[MakeDataResourceNotebook]] == 0,
 Echo["Ingesting datasets metadata CSV file.", "OOPDataAcquisitionDialogsAgent:"];
 dsDatasetMetadata = ResourceFunction["ImportCSVToDataset"]["https://raw.githubusercontent.com/antononcube/Data-Acquisition-Engine-project/main/Data/dfDatasetsMetadata.csv"];
 dsDatasetsHowToGet = ResourceFunction["ImportCSVToDataset"]["https://raw.githubusercontent.com/antononcube/Data-Acquisition-Engine-project/main/Data/dfDatasetsHowToGet.csv"];
-
+aDatasetsHowToGet = Normal@dsDatasetsHowToGet[Association, #ID -> #HowToGet &];
 
 (*==========================================================*)
 (* FSM prepare object                                       *)
@@ -387,9 +387,9 @@ DataAcquisitionFSM[objID_]["ChooseTransition"[stateID : "AcquireItem", inputArg_
       ];
       spec = {aRec["Package"], aRec["Item"]};
 
-      Echo[Row[{"Acquiring:", spec}], "AcquireItem:"];
+      Echo[Row[{"Acquiring:", spec, Spacer[3], "using the code:", Spacer[3], Style[ aDatasetsHowToGet[aRec["ID"]], Bold, FontFamily->"Courier"]}], "AcquireItem:"];
 
-      daDataObject = ExampleData[spec];
+      daDataObject = ToExpression @ aDatasetsHowToGet[aRec["ID"]];
       Echo[Row[{ Style["Assigned:", Italic, Bold], Spacer[3], spec, Spacer[3], "to:", Spacer[5], Style["daDataObject", Bold, FontFamily -> "Courier"], Spacer[3], "."}], "AcquireItem:"];
 
       dateTime = DateString[Now, "ISODateTime"];
