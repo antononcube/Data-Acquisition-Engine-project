@@ -48,7 +48,7 @@ If[ Length[DownValues[$OOPFSMHEAD]] == 0,
 
 If[ Length[DownValues[DataAcquisitionDialogsGrammar`pDADCOMMAND]] == 0,
   Echo["DataAcquisitionDialogsGrammar.m", "Importing from GitHub:"];
-  Import["https://raw.githubusercontent.com/antononcube/ConversationalAgents/master/Projects/OOPDataAcquisitionDialogsAgent/Mathematica/DataAcquisitionDialogsGrammar.m"]
+  Import["https://raw.githubusercontent.com/antononcube/Data-Acquisition-Engine-project/main/Packages/WL/DataAcquisitionDialogsGrammar.m"]
 ];
 
 If[ Length[DownValues[MakeDataResourceNotebook]] == 0,
@@ -61,7 +61,8 @@ If[ Length[DownValues[MakeDataResourceNotebook]] == 0,
 (*==========================================================*)
 
 Echo["Ingesting datasets metadata CSV file.", "OOPDataAcquisitionDialogsAgent:"];
-dsDatasetMetadata = ResourceFunction["ImportCSVToDataset"]["https://raw.githubusercontent.com/antononcube/ConversationalAgents/master/Projects/OOPDataAcquisitionDialogsAgent/Data/dsDatasetMetadata.csv"];
+dsDatasetMetadata = ResourceFunction["ImportCSVToDataset"]["https://raw.githubusercontent.com/antononcube/Data-Acquisition-Engine-project/main/Data/dfDatasetsMetadata.csv"];
+dsDatasetsHowToGet = ResourceFunction["ImportCSVToDataset"]["https://raw.githubusercontent.com/antononcube/Data-Acquisition-Engine-project/main/Data/dfDatasetsHowToGet.csv"];
 
 
 (*==========================================================*)
