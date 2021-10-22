@@ -41,7 +41,7 @@ If[ Length[SubValues[FunctionalParsers`ParseAlternativeComposition]] == 0,
   Import["https://raw.githubusercontent.com/antononcube/MathematicaForPrediction/master/FunctionalParsers.m"];
 ];
 
-If[ Length[DownValues[$OOPFSMHEAD]] == 0,
+If[ Length[OwnValues[$OOPFSMHEAD]] == 0,
   Echo["OOPFiniteStateMachine.m", "Importing from GitHub:"];
   Import["https://raw.githubusercontent.com/antononcube/ConversationalAgents/master/Packages/WL/OOPFiniteStateMachine.m"];
 ];
