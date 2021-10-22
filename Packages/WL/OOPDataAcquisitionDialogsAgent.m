@@ -84,7 +84,7 @@ daObj = DataAcquisitionFSM["DataAcquisitionDialogs"];
 (* States *)
 
 daObj["AddState"["WaitForRequest", (Echo["Please enter item request.", "WaitForRequest:"]; #["Dataset"] = dsDatasetMetadata) &]];
-daObj["AddState"["ListOfItems", Echo["Listing items...", "ListOfContacts[Action]:"] &]];
+daObj["AddState"["ListOfItems", Echo["Listing items...", "ListOfItems[Action]:"] &]];
 daObj["AddState"["PrioritizedList", Echo["Prioritized dataset...", "PrioritizedList:"] &]];
 daObj["AddState"["WaitForFilter", Echo["Enter a filter...", "WaitForFilter[Action]:"] &]];
 daObj["AddState"["AcquireItem", Echo[Row[{"Acquire dataset:", Spacer[3], #["Dataset"][[1]]}], "AcquireItem:"] &]];
@@ -208,7 +208,7 @@ DataAcquisitionFSM[objID_]["ChooseTransition"[stateID : "ListOfItems", inputArg_
       transitions = fsmObj["States"][stateID]["ExplicitNext"];
       ECHOLOGGING[Style[transitions, Purple], stateID <> ":"];
 
-      ECHOLOGGING[Row[{"Using the contact spec:", Spacer[3], fsmObj["ItemSpec"]}], "ListOfContacts:"];
+      ECHOLOGGING[Row[{"Using the contact spec:", Spacer[3], fsmObj["ItemSpec"]}], "ListOfItems:"];
 
       (* Get new dataset *)
       dsNew =
@@ -239,7 +239,7 @@ DataAcquisitionFSM[objID_]["ChooseTransition"[stateID : "ListOfItems", inputArg_
         Length[dsNew] == 0,
         Echo[
           Row[{Style["No results with the contact specification.", Red, Italic], Spacer[3], fsmObj["ItemSpec"]}],
-          "ListOfContacts:"
+          "ListOfItems:"
         ];
         Return[First@Select[transitions, #ID == "startOver" || #To == "WaitForRequest" &]],
 
