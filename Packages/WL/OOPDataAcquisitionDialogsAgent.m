@@ -208,7 +208,7 @@ DataAcquisitionFSM[objID_]["ChooseTransition"[stateID : "ListOfItems", inputArg_
       transitions = fsmObj["States"][stateID]["ExplicitNext"];
       ECHOLOGGING[Style[transitions, Purple], stateID <> ":"];
 
-      ECHOLOGGING[Row[{"Using the contact spec:", Spacer[3], fsmObj["ItemSpec"]}], "ListOfItems:"];
+      ECHOLOGGING[Row[{"Using the item spec:", Spacer[3], fsmObj["ItemSpec"]}], "ListOfItems:"];
 
       (* Get new dataset *)
       dsNew =
@@ -235,20 +235,20 @@ DataAcquisitionFSM[objID_]["ChooseTransition"[stateID : "ListOfItems", inputArg_
       Echo[Row[{"Obtained the records:", dsNew}], stateID <> ":"];
 
       Which[
-        (*No contacts*)
+        (*No items*)
         Length[dsNew] == 0,
         Echo[
-          Row[{Style["No results with the contact specification.", Red, Italic], Spacer[3], fsmObj["ItemSpec"]}],
+          Row[{Style["No results with the item specification.", Red, Italic], Spacer[3], fsmObj["ItemSpec"]}],
           "ListOfItems:"
         ];
         Return[First@Select[transitions, #ID == "startOver" || #To == "WaitForRequest" &]],
 
-        (*Just one contact*)
+        (*Just one item*)
         Length[dsNew] == 1,
         fsmObj["Dataset"] = dsNew;
         Return[First@Select[transitions, #ID == "uniqueItemObtained" || #To == "AcquireItem" &]],
 
-        (*Many contacts*)
+        (*Many items*)
         Length[dsNew] > 1,
         fsmObj["Dataset"] = dsNew;
         Return[First@Select[transitions, #ID == "manyItems" || #To == "WaitForFilter" &]]
