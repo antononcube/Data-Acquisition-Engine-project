@@ -168,6 +168,12 @@ DataAcquisitionFSM[objID_]["ChooseTransition"[stateID : "WaitForRequest", inputA
         Length[pres] > 0 && MemberQ[Flatten[pres], DADGlobal["priority"]],
         Return[First@Select[transitions, #ID == "priority" || #To == "PrioritizedList" &]],
 
+        (*Show all*)
+        Length[pres] > 0 && MemberQ[Flatten[pres], DADGlobal["showall"]],
+        obj["Dataset"] = dsDatasetMetadata;
+        obj["ItemSpec"] = Flatten[pres];
+        Return[First@Select[transitions, #ID == "itemSpec" || #To == "ListOfItems" &]],
+
         (*Other global commands*)
         Length[pres] > 0 && ! Developer`EmptyQ[Cases[pres, DADGlobal[___], Infinity]],
         Echo["No implemented reaction for the given service input.", "WaitForRequest:"];
@@ -216,6 +222,10 @@ DataAcquisitionFSM[objID_]["ChooseTransition"[stateID : "ListOfItems", inputArg_
             (* Integer position *)
             IntegerQ[fsmObj["ItemSpec"]] || VectorQ[fsmObj["ItemSpec"], IntegerQ],
             fsmObj["Dataset"][fsmObj["ItemSpec"]],
+
+            (* Integer position *)
+            !FreeQ[fsmObj["ItemSpec"], DADGlobal["showall"]],
+            fsmObj["Dataset"],
 
             (* Raku parser result *)
             TrueQ[ Head[fsmObj["ItemSpec"]] === Hold ],
@@ -273,8 +283,15 @@ DataAcquisitionFSM[objID_]["ChooseTransition"[stateID : "WaitForFilter", inputAr
       (*Check was "global" command was entered.E.g."start over".*)
       pres = ParseShortest[pDADGLOBAL][ToTokens[ToLowerCase[input]]];
 
-      (*Global request handling delegation*)
-      If[Length[pres] > 0,
+      (*Global request handling*)
+      Which[
+       (*Quit request*)
+        MemberQ[{"quit"}, ToLowerCase[input]] || Length[pres] > 0 && MemberQ[Flatten[pres], DADGlobal["quit"]],
+        Echo["Quiting.", "WaitForFilter:"];
+        Return[First@Select[transitions, #ID == "quit" || #To == "Exit" &]],
+
+        (*Global request handling delegation*)
+        Length[pres] > 0,
         Echo["Delegate handling of global requests.", "WaitForFilter:"];
         Return[First@Select[transitions, #ID == "startOver" || #To == "WaitForRequest" &]]
       ];
