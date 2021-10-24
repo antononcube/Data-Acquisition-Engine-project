@@ -80,7 +80,7 @@ dsl interpret -c "open a notebook with that data package loaded"
 Here is a diagram that shows the interaction between workflow steps and 
 DAW components:
 
-[![CLIWorkflow](./Diagrams/DAW-CLI-workflow-execution-example.png)](../Diagrams/DAW-CLI-workflow-execution-example.pdf)
+[![CLIWorkflow](../Diagrams/DAW-CLI-workflow-execution-example.png)](../Diagrams/DAW-CLI-workflow-execution-example.pdf)
 
 (The 
 [NLP Template Engine](https://github.com/antononcube/NLP-Template-Engine)
