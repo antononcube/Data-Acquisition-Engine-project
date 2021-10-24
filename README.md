@@ -21,8 +21,26 @@ More precisely this repository has:
 
 ------
 
+## Presentations
+
+### Multi-language Data Wrangling Conversational Agent
+
+- Wolfram Technology Conference 2020 (WTC-2020)
+- [Markdown slides](https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book/blob/master/Presentations/WTC-2020/WTC2020-Antonov-Multi-language-Data-Wrangling-Conversational-Agent.md)
+- [Video recording](https://www.youtube.com/watch?v=pQk5jwoMSxs), 31 min
+
+### Multi-language Data Acquisition Conversational Agent
+
+- Presented at Wolfram Technology Conference 2021 (WTC-2021)
+- [Markdown slides](Presentations/WTC-2021/WTC2021-Antonov-Multi-language-Data-Acquisition-Conversational-Agent.md)
+- [Video recording](https://www.youtube.com/watch?v=KlEl2b8oxb8), 54 min, extended version of the WTC-2021 presentation
+ 
+
+------
+
 ## References
 
+### Repositories
 
 [AAr1] Anton Antonov,
 [DataAcquirer project](https://github.com/antononcube/ConversationalAgents/tree/master/Projects/DataAcquirer),
@@ -38,3 +56,10 @@ More precisely this repository has:
 [DSL::English::DataQueryWorkflows Raku package](https://github.com/antononcube/Raku-DSL-English-DataQueryWorkflows),
 (2020),
 [GitHub/antononcube](https://github.com/antononcube).
+
+### Videos
+
+[AAv1] Anton Antonov,
+["Multi-language Data Acquisition Conversational Agent (extended version)"](https://www.youtube.com/watch?v=KlEl2b8oxb8),
+(2021),
+[YouTube.com](https://www.youtube.com/channel/UC5qMPIsJeztfARXWdIw3Xzw).
