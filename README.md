@@ -24,9 +24,9 @@ For a more detailed, but still brief introduction see the document
 ["Data acquisition conversational agent"](./Documents/Data-acqusition-conversational-agent.md).
 
 For a long introduction see the 
-[slides](https://github.com/antononcube/SimplifiedMachineLearningWorkflows-book/blob/master/Presentations/WTC-2020/WTC2020-Antonov-Multi-language-Data-Wrangling-Conversational-Agent.md)
+[slides](Presentations/WTC-2021/WTC2021-Antonov-Multi-language-Data-Acquisition-Conversational-Agent.md)
 and
-[video recording](https://www.youtube.com/watch?v=pQk5jwoMSxs)
+[video recording](https://www.youtube.com/watch?v=KlEl2b8oxb8)
 of the presentation 
 "Multi-language Data Acquisition Conversational Agent".
 
