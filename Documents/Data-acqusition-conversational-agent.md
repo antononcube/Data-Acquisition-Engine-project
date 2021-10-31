@@ -86,6 +86,27 @@ DAW components:
 [NLP Template Engine](https://github.com/antononcube/NLP-Template-Engine)
 has its own repository, [AAr4].)
 
+### Between the commands
+
+Each command `Ci` in the pipeline (of commands) produces a JSON or XML file that has the necessary operational data 
+for the subsequent commands and (optionally) reflects the work done or results obtained by `Ci`.
+
+There is a variety of metadata that can be tucked-in into that metadata JSON/XML file. 
+Here is an example list:
+
+- Access credentials and related metadata
+
+- Data initial locations
+
+- Data destinations (current, intermediate, past)
+
+- Operational parameters  
+  - Parser parameters
+  - Data intermediate formats
+  - Transformation queries
+  - Notebook names
+  - Etc.
+  
 
 ------ 
 
