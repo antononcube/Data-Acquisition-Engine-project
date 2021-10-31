@@ -88,11 +88,16 @@ has its own repository, [AAr4].)
 
 ### Between the commands
 
-Each command `Ci` in the pipeline (of commands) produces a JSON or XML file that has the necessary operational data 
+Each command `Ci` in the pipeline (of commands) produces a JSON or XML record that has the necessary operational data 
 for the subsequent commands and (optionally) reflects the work done or results obtained by `Ci`.
 
-There is a variety of metadata that can be tucked-in into that metadata JSON/XML file. 
-Here is an example list:
+In other words:
+1. Most commands output text that is in JSON format and has metadata
+2. Most commands input is text in JSON format that has metadata 
+3. Some commands take their operational input as arguments
+
+There is a variety of metadata that can be tucked-in into that metadata JSON/XML text that is
+transferred between the pipeline commands.  Here is an example list:
 
 - Access credentials and related metadata
 
